@@ -35,7 +35,7 @@ services:
             - ./blackbox:/config
         command: --config.file=/config/blackbox.yml
     grafana:
-        image: grafana/grafana
+        image: grafana/grafana:main-ubuntu
         depends_on:
             - prometheus
         ports:
