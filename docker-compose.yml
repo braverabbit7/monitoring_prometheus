@@ -13,19 +13,19 @@ services:
             - alertmanager
     alertmanager-bot:
         command:
-             - --alertmanager.url=http://alertmanager:9093
-             - --log.level=info
-             - --store=bolt
-             - --bolt.path=/data/bot.db
+            - --alertmanager.url=http://alertmanager:9093
+            - --log.level=info
+            - --store=bolt
+            - --bolt.path=/data/bot.db
         environment:
             TELEGRAM_ADMIN: "253758547"
             TELEGRAM_TOKEN: 6496646075:AAG77ORDHogHY7S0jZ83hxnnG31kO-ZbXhU
         image: metalmatze/alertmanager-bot:0.4.3
         ports:
-             - 8080:8080
+            - 8080:8080
         restart: always
         volumes:
-             - ./data:/data
+            - ./data:/data
     alertmanager:
         image: prom/alertmanager:v0.21.0
         ports:
