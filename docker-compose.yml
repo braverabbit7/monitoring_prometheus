@@ -34,8 +34,8 @@ services:
             - ./alertmanager/:/etc/alertmanager/
         restart: always
         command:
-           - '--config.file=/etc/alertmanager/config.yml'
-           - '--storage.path=/etc/alertmanager/data'
+            - '--config.file=/etc/alertmanager/config.yml'
+            - '--storage.path=/etc/alertmanager/data'
 
     node-exporter:
         image: prom/node-exporter
