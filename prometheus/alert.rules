@@ -19,11 +19,11 @@ groups:
           summary: "Response delay for lms.skillfactory.ru"
           description: "Response delay for lms.skillfactory.ru exceeded 5 seconds."
 
-      # - alert: ServerRebooted
-      #   expr: up == 0 and job == "ger2"
-      #   for: 5m
-      #   labels:
-      #     severity: critical
-      #   annotations:
-      #     summary: "Сервер {{ $labels.instance }} перезагрузился"
-      #     description: "Сервер {{ $labels.instance }} был недоступен более 5 минут."
+      - alert: ServerRebooted
+        expr: up == 0 and job == "ger2"
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Сервер перезагрузился"
+          description: "Сервер был недоступен более минут."
