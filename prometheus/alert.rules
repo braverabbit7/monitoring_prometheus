@@ -1,20 +1,20 @@
 groups:
   - name: site_alerts
     rules:
-      - alert: SiteStatusCodeChanged
-        expr: changes(http_response_code{instance="lms.skillfactory.ru"}[5m]) > 0
-        for: 1m
-        labels:
-          severity: warning
-        annotations:
-          summary: "Status code changed for lms.skillfactory.ru"
-          description: "Status code for lms.skillfactory.ru has changed within the last 5 minutes."
-
-      # - alert: ServerRestart
-      #   expr: changes(uptime_seconds{job="node"}) > 0
+      # - alert: SiteStatusCodeChanged
+      #   expr: changes(http_response_code{instance="lms.skillfactory.ru"}[5m]) > 0
       #   for: 1m
       #   labels:
-      #     severity: critical
+      #     severity: warning
       #   annotations:
-      #     summary: "Server restarted"
-      #     description: "Server has been restarted within the last minute."
+      #     summary: "Status code changed for lms.skillfactory.ru"
+      #     description: "Status code for lms.skillfactory.ru has changed within the last 5 minutes."
+
+      - alert: ServerRestart
+        expr: changes(uptime_seconds{job="node"}) > 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Server restarted"
+          description: "Server has been restarted within the last minute."
