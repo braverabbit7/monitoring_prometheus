@@ -10,11 +10,11 @@ groups:
           summary: "Status code changed for lms.skillfactory.ru"
           description: "Status code for lms.skillfactory.ru has changed within the last 5 minutes."
 
-      - alert: ServerRestart
-        expr: changes(uptime_seconds{job="node"}) > 0
-        for: 1m
-        labels:
-          severity: critical
-        annotations:
-          summary: "Server restarted"
-          description: "Server has been restarted within the last minute."
+      # - alert: ServerRestart
+      #   expr: changes(uptime_seconds{job="node"}) > 0
+      #   for: 1m
+      #   labels:
+      #     severity: critical
+      #   annotations:
+      #     summary: "Server restarted"
+      #     description: "Server has been restarted within the last minute."
