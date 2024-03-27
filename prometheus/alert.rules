@@ -19,11 +19,11 @@ groups:
           summary: "Response delay for lms.skillfactory.ru"
           description: "Response delay for lms.skillfactory.ru exceeded 5 seconds."
 
-      - alert: ServerRestart
-        expr: changes(uptime_seconds{job="ger2"}) > 0
-        for: 1m
+      - alert: ServerRebooted
+        expr: up == 0 and job == "ger2"
+        for: 5m
         labels:
           severity: critical
         annotations:
-          summary: "Server restarted"
-          description: "Server has been restarted within the last minute."
+          summary: "Сервер {{ $labels.instance }} перезагрузился"
+          description: "Сервер {{ $labels.instance }} был недоступен более 5 минут."
