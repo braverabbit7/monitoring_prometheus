@@ -9,21 +9,3 @@ groups:
         annotations:
           summary: "Status code changed for lms.skillfactory.ru"
           description: "Status code for lms.skillfactory.ru has changed within the last 5 minutes."
-
-      - alert: SiteResponseDelay
-        expr: probe_http_duration_seconds{instance="blackbox-exporter:9115", target="https://lms.skillfactory.ru"} > 5
-        for: 1m
-        labels:
-          severity: critical
-        annotations:
-          summary: "Response delay for lms.skillfactory.ru"
-          description: "Response delay for lms.skillfactory.ru exceeded 5 seconds."
-
-      - alert: ServerRestart
-        expr: changes(uptime_seconds{job="node"}) > 0
-        for: 1m
-        labels:
-          severity: critical
-        annotations:
-          summary: "Server restarted"
-          description: "Server has been restarted within the last minute."
