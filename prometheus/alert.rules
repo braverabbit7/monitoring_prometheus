@@ -11,7 +11,7 @@ groups:
       #     description: "Status code for lms.skillfactory.ru has changed within the last 5 minutes."
 
       - alert: ServerRestart
-        expr: changes(uptime_seconds{job="node"}) > 0
+        expr: changes(uptime_seconds{job="ger2"}) > 0
         for: 1m
         labels:
           severity: critical
